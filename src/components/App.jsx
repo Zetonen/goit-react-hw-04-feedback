@@ -31,13 +31,11 @@ export const App = () => {
     return Math.round((good / total) * 100) || 0;
   };
 
-  const options = ['good', 'neutral', 'bad'];
   const totalFeedback = countTotalFeedback();
   const positiveFeedback = countPositiveFeedback();
-
   return (
     <Section>
-      <FeedbackOptions options={options} onLeaveFeedback={onLeaveFeedback} />
+      <FeedbackOptions options={Object.keys({good, neutral, bad })} onLeaveFeedback={onLeaveFeedback} />
       {totalFeedback !== 0 ? (
         <Statistics
           good={good}
